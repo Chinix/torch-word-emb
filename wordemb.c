@@ -10,7 +10,7 @@
 #define torch_(NAME) TH_CONCAT_3(torch_, Real, NAME)
 #define torch_Tensor TH_CONCAT_STRING_3(torch., Real, Tensor)
 
-#define MAX_WORD_LEN 2048*2
+#define MAX_WORD_LEN 2048*100
 
 typedef char (*DICT)[MAX_WORD_LEN];
 
