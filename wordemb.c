@@ -112,7 +112,11 @@ int load_word2vec_bin( LUASTATE ){
     printf("%s\n", "1");
     FILE *fp = fopen(filepath, "rb");
     printf("%s\n", "2");
-    if( fp == NULL ){ return -1; }
+    if( fp == NULL )
+    { 
+        printf("%s\n", "fp == NULL");
+        return -1; 
+    }
     printf("%s\n", "3");
     fscanf(fp, "%zu %zu", &n_word, &dim);
     printf("%s\n", "4");
