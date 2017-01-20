@@ -109,15 +109,19 @@ int load_word2vec_bin( LUASTATE ){
     printf("%s\n", "load_word2vec_bin");
     const char * filepath = luaL_checklstring(L, 1, NULL);
     size_t n_word, dim;
-
+    printf("%s\n", "1");
     FILE *fp = fopen(filepath, "rb");
+    printf("%s\n", "2");
     if( fp == NULL ){ return -1; }
-
+    printf("%s\n", "3");
     fscanf(fp, "%zu %zu", &n_word, &dim);
+    printf("%s\n", "4");
     fgetc(fp);
-
+    printf("%s\n", "5");
     int ret = load_word_embedding(L, fp, dim, n_word, 1, 1);
+    printf("%s\n", "6");
     fclose(fp);
+    printf("%s\n", "7");
     return ret;
 }
 int load_word2vec_text( LUASTATE ){
