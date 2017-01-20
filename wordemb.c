@@ -23,7 +23,7 @@ static int read_vectors_bin( FILE*fp, DICT words, float * storage, size_t dim, s
 
         fscanf(fp, "%s", words[i] );
         if(i < 10)
-            print("%s\n", words[i]);
+            printf("%s\n", words[i]);
 
         fgetc(fp); // delete ' '
 
