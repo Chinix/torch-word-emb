@@ -17,7 +17,7 @@ typedef char (*DICT)[MAX_WORD_LEN];
 
 
 static int read_vectors_bin( FILE*fp, DICT words, float * storage, size_t dim, size_t n_word ){
-
+    printf("%s\n", "read_vectors_bin");
     for( int i = 0; i < n_word; i++ ){
         float *vector = storage + dim * i;
 
@@ -78,7 +78,7 @@ static int load_word_embedding(LUASTATE, FILE*fp, size_t dim, size_t n_word, int
  
     THTensor *self;
     DICT word;
-
+    printf("%s\n", "load_word_embedding");
     allocate_data( &self, &word, dim, n_word);
     if ( is_bin ){
         read_vectors_bin( fp, word, THTensor_(data)(self), dim, n_word );
@@ -106,6 +106,7 @@ static int load_word_embedding(LUASTATE, FILE*fp, size_t dim, size_t n_word, int
 
 
 int load_word2vec_bin( LUASTATE ){
+    printf("%s\n", "load_word2vec_bin");
     const char * filepath = luaL_checklstring(L, 1, NULL);
     size_t n_word, dim;
 
